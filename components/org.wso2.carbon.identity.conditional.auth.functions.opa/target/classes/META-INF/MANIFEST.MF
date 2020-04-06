@@ -1,0 +1,52 @@
+Manifest-Version: 1.0
+Bnd-LastModified: 1586155991412
+Build-Jdk: 1.8.0_242
+Built-By: wso2
+Bundle-Description: WSO2 is an open source application development softw
+ are company focused on providing service-oriented        architecture s
+ olutions for professional developers.
+Bundle-DocURL: http://www.wso2.org/
+Bundle-License: http://www.apache.org/licenses/LICENSE-2.0.txt
+Bundle-ManifestVersion: 2
+Bundle-Name: org.wso2.carbon.identity.conditional.auth.functions.opa
+Bundle-SymbolicName: org.wso2.carbon.identity.conditional.auth.functions
+ .opa
+Bundle-Vendor: WSO2
+Bundle-Version: 0.1.40
+Created-By: Apache Maven Bundle Plugin
+Export-Package: org.wso2.carbon.identity.conditional.auth.functions.opa;
+ uses:="org.apache.http.impl.client";version="0.1.40"
+Import-Package: org.apache.commons.lang;version="[2.6,3)",org.apache.com
+ mons.logging;version="[1.2,2)",org.apache.http.entity;version="[4.3,5)"
+ ,org.apache.http.util;version="[4.3,5)",org.apache.http.client.methods;
+ version="[4.3,5)",org.apache.http.client.config;version="[4.3,5)",org.a
+ pache.http.impl.client;version="[4.3,5)",org.apache.http.conn;version="
+ [4.3,5)",org.json.simple,org.json.simple.parser,org.apache.http;version
+ ="[4.3,5)",org.osgi.service.component;version="[1.2,2)",org.wso2.carbon
+ .identity.application.authentication.framework;version="[5.14,6)",org.w
+ so2.carbon.identity.application.authentication.framework.context;versio
+ n="[5.14,6)",org.wso2.carbon.identity.application.authentication.framew
+ ork.exception;version="[5.14,6)",org.wso2.carbon.identity.application.a
+ uthentication.framework.config.model.graph.js;version="[5.14,6)",org.ws
+ o2.carbon.identity.application.authentication.framework.config.model.gr
+ aph;version="[5.14,6)",org.wso2.carbon.identity.application.authenticat
+ ion.framework.util;version="[5.14,6)",org.wso2.carbon.identity.conditio
+ nal.auth.functions.common.utils;version="[0.1,1)",org.wso2.carbon.ident
+ ity.claim.metadata.mgt;version="[5.14,6)",org.wso2.carbon.identity.clai
+ m.metadata.mgt.exception;version="[5.14,6)",org.wso2.carbon.identity.cl
+ aim.metadata.mgt.model;version="[5.14,6)",org.apache.axiom.om.util,org.
+ wso2.carbon.identity.conditional.auth.functions.common.auth;version="[0
+ .1,1)",org.apache.http.client;version="[4.3,5)",org.wso2.carbon.identit
+ y.core.util;version="[5.14,6)",org.wso2.carbon.user.core;version="[4.4,
+ 5)",org.wso2.carbon.core.util;version="[4.4,5)",org.osgi.service.compon
+ ent.annotations;version="[1.2,2)",org.wso2.carbon.user.core.service;ver
+ sion="[4.4,5)",org.wso2.carbon.identity.application.authentication.fram
+ ework.model;version="[5.14,6)",org.wso2.carbon;version="[4.4,5)",org.ws
+ o2.carbon.registry.core.service;version="[1.0,2)",org.apache.http.impl;
+ version="[4.3,5)",org.wso2.carbon.identity.application.authentication.f
+ ramework.config.model;version="[5.14,6)",org.apache.commons.io;version=
+ "[2.4,3)"
+SCM-Revision: b81259c0e72500e761c646f63ad67d5812f9ccba
+Service-Component: OSGI-INF/org.wso2.carbon.identity.conditional.auth.fu
+ nctions.opa.internal.OPAFunctionsServiceComponent.xml
+Tool: Bnd-2.1.0.20130426-122213

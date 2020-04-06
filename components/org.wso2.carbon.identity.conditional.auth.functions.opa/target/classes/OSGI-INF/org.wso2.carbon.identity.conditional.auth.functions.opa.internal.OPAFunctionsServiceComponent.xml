@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" immediate="true" name="identity.conditional.auth.functions.opa.component" activate="activate" deactivate="deactivate">
+    <reference name="JsFunctionRegistry" interface="org.wso2.carbon.identity.application.authentication.framework.JsFunctionRegistry" cardinality="1..1" policy="dynamic" bind="setJsFunctionRegistry" unbind="unsetJsFunctionRegistry"/>
+    <reference name="claim.meta.mgt.service" interface="org.wso2.carbon.identity.claim.metadata.mgt.ClaimMetadataManagementService" cardinality="1..1" policy="dynamic" bind="setClaimMetaMgtService" unbind="unsetClaimMetaMgtService"/>
+    <implementation class="org.wso2.carbon.identity.conditional.auth.functions.opa.internal.OPAFunctionsServiceComponent"/>
+</scr:component>
