@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project version="4">
-  <component name="ProjectModuleManager">
-    <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/identity-application-authz-opa.iml" filepath="$PROJECT_DIR$/.idea/identity-application-authz-opa.iml" />
-      <module fileurl="file://$PROJECT_DIR$/components/org.wso2.carbon.identity.conditional.auth.functions.opa/org.wso2.carbon.identity.conditional.auth.functions.opa.iml" filepath="$PROJECT_DIR$/components/org.wso2.carbon.identity.conditional.auth.functions.opa/org.wso2.carbon.identity.conditional.auth.functions.opa.iml" />
-    </modules>
-  </component>
-</project>
