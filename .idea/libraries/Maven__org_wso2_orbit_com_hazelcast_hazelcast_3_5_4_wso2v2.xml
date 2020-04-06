@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: org.wso2.orbit.com.hazelcast:hazelcast:3.5.4.wso2v2">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/wso2/orbit/com/hazelcast/hazelcast/3.5.4.wso2v2/hazelcast-3.5.4.wso2v2.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/org/wso2/orbit/com/hazelcast/hazelcast/3.5.4.wso2v2/hazelcast-3.5.4.wso2v2-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/wso2/orbit/com/hazelcast/hazelcast/3.5.4.wso2v2/hazelcast-3.5.4.wso2v2-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
