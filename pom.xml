@@ -25,9 +25,9 @@
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
-    <groupId>org.wso2.carbon.identity.conditional.auth.functions</groupId>
+    <groupId>org.wso2.carbon.identity.application.authz.opa</groupId>
     <artifactId>identity-application-authz-opa</artifactId>
-    <version>0.1.40</version>
+    <version>0.1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>WSO2 Carbon - IAM Conditional Authentication Functions</name>
     <url>http://wso2.org</url>
@@ -40,7 +40,7 @@
     </scm>
 
     <modules>
-        <module>components/org.wso2.carbon.identity.conditional.auth.functions.opa</module>
+        <module>components/org.wso2.carbon.identity.application.authz.opa</module>
     </modules>
 
     <dependencyManagement>
@@ -48,7 +48,7 @@
             <dependency>
                 <groupId>org.wso2.carbon.identity.conditional.auth.functions</groupId>
                 <artifactId>org.wso2.carbon.identity.conditional.auth.functions.common</artifactId>
-                <version>${project.version}</version>
+                <version>${org.wso2.carbon.identity.conditional.auth.functions.common.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.wso2.carbon.identity.conditional.auth.functions</groupId>
@@ -61,8 +61,8 @@
                 <version>${project.version}</version>
             </dependency>
             <dependency>
-                <groupId>org.wso2.carbon.identity.conditional.auth.functions</groupId>
-                <artifactId>org.wso2.carbon.identity.conditional.auth.functions.opa</artifactId>
+                <groupId>org.wso2.carbon.identity.application.authz.opa</groupId>
+                <artifactId>org.wso2.carbon.identity.application.authz.opa</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
@@ -139,6 +139,16 @@
             </dependency>
             <dependency>
                 <groupId>org.powermock</groupId>
+                <artifactId>powermock-module-junit4</artifactId>
+                <version>${powermock.module.junit4}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.mockito</groupId>
+                <artifactId>mockito-all</artifactId>
+                <version>${mockito.all}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.powermock</groupId>
                 <artifactId>powermock-module-testng-common</artifactId>
                 <version>${org.powermock.version}</version>
             </dependency>
@@ -185,7 +195,7 @@
             <dependency>
                 <groupId>org.wso2.carbon.identity.conditional.auth.functions</groupId>
                 <artifactId>org.wso2.carbon.identity.conditional.auth.functions.test.utils</artifactId>
-                <version>${project.version}</version>
+                <version>${org.wso2.carbon.identity.conditional.auth.functions.test.utils.version}</version>
                 <scope>test</scope>
             </dependency>
             <dependency>
@@ -438,8 +448,12 @@
         <json.wso2.version>3.0.0.wso2v1</json.wso2.version>
         <org.testng.version>6.9.10</org.testng.version>
         <org.powermock.version>1.7.3</org.powermock.version>
+        <powermock.module.junit4>1.6.2</powermock.module.junit4>
+        <mockito.all>1.9.5</mockito.all>
         <com.h2database.version>1.2.140.wso2v3</com.h2database.version>
 
+        <org.wso2.carbon.identity.conditional.auth.functions.test.utils.version>1.1.0</org.wso2.carbon.identity.conditional.auth.functions.test.utils.version>
+        <org.wso2.carbon.identity.conditional.auth.functions.common.version>1.1.0</org.wso2.carbon.identity.conditional.auth.functions.common.version>
         <org.wso2.carbon.identity.testutil.version>5.10.0</org.wso2.carbon.identity.testutil.version>
         <org.json.version.range>[3.0,4)</org.json.version.range>
         <maven.scr.plugin.version>1.24.0</maven.scr.plugin.version>
