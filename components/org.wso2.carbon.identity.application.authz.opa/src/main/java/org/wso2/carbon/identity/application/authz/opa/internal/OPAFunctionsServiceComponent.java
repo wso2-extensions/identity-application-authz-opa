@@ -21,7 +21,12 @@ package org.wso2.carbon.identity.application.authz.opa.internal;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.osgi.service.component.ComponentContext;
-import org.osgi.service.component.annotations.*;
+import org.osgi.service.component.annotations.Activate;
+import org.osgi.service.component.annotations.Component;
+import org.osgi.service.component.annotations.Deactivate;
+import org.osgi.service.component.annotations.Reference;
+import org.osgi.service.component.annotations.ReferenceCardinality;
+import org.osgi.service.component.annotations.ReferencePolicy;
 import org.wso2.carbon.identity.application.authentication.framework.JsFunctionRegistry;
 import org.wso2.carbon.identity.application.authz.opa.InvokeOpaFunction;
 import org.wso2.carbon.identity.application.authz.opa.InvokeOpaFunctionImpl;
@@ -31,7 +36,7 @@ import org.wso2.carbon.identity.claim.metadata.mgt.ClaimMetadataManagementServic
  * services component which handles OPA related auth functions.
  */
 @Component(
-        name = "identity.conditional.auth.functions.opa.component",
+        name = "identity.application.authz.opa.component",
         immediate = true
 )
 public class OPAFunctionsServiceComponent {

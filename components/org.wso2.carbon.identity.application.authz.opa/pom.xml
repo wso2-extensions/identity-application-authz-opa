@@ -28,8 +28,8 @@
         <relativePath>../../pom.xml</relativePath>
     </parent>
 
-    <artifactId>org.wso2.carbon.identity.application.authz</artifactId>
-    <name>Imply OPA related functions</name>
+    <artifactId>org.wso2.carbon.identity.application.authz.opa</artifactId>
+    <name>OPA related functions</name>
     <packaging>bundle</packaging>
 
     <dependencies>
@@ -120,7 +120,7 @@
                             org.wso2.carbon.identity.application.authz.opa
                         </Export-Package>
                         <Import-Package>
-                            javax.servlet.*; version="${imp.pkg.version.javax.servlet}",
+                            javax.servlet; version="${imp.pkg.version.javax.servlet}",
                             org.apache.commons.io,
                             org.apache.commons.lang,
                             org.apache.commons.logging,
@@ -165,4 +165,5 @@
             </plugin>
         </plugins>
     </build>
+    
 </project>

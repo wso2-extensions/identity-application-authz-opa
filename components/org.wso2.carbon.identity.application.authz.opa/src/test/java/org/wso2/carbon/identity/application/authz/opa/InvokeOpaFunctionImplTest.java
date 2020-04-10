@@ -50,7 +50,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 import static org.mockito.Matchers.anyString;
-import static org.powermock.api.mockito.PowerMockito.*;
+import static org.powermock.api.mockito.PowerMockito.mock;
+import static org.powermock.api.mockito.PowerMockito.mockStatic;
+import static org.powermock.api.mockito.PowerMockito.when;
+
 
 /**
  * unit test for the InvokeOpaFunctionImpl.
@@ -158,5 +161,5 @@ public class InvokeOpaFunctionImplTest {
         return new org.powermock.modules.testng.PowerMockObjectFactory();
     }
 
-
 }
+
