@@ -18,11 +18,17 @@
  */
 package org.wso2.carbon.identity.application.authz.opa.util;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import org.wso2.carbon.identity.application.authz.opa.InvokeOpaFunctionImpl;
+
 /**
  * Set of the constants used in the opa related functions.
  */
 public class OPAConstants {
 
+    public static final Log LOG = LogFactory.getLog(InvokeOpaFunctionImpl.class);
+    public static final String TYPE_APPLICATION_JSON = "application/json";
     public static final int TIME = 5000;
     public static final String CONTEXT = "context";
     public static final String INPUT = "input";

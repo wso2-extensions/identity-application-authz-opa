@@ -53,7 +53,7 @@ public class OPAFunctionsServiceComponent {
             jsFunctionRegistry.register(JsFunctionRegistry.Subsystem.SEQUENCE_HANDLER, FUNC_INVOKE_OPA, invokeOPA);
         } catch (Throwable e) {
 
-            LOG.error("Error occurred while registering invokeOPA function");
+            LOG.error("Error occurred while registering invokeOPA function", e);
         }
     }
 

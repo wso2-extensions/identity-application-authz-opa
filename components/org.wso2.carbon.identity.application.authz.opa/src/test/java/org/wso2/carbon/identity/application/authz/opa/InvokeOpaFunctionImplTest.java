@@ -54,7 +54,6 @@ import static org.powermock.api.mockito.PowerMockito.mock;
 import static org.powermock.api.mockito.PowerMockito.mockStatic;
 import static org.powermock.api.mockito.PowerMockito.when;
 
-
 /**
  * unit test for the InvokeOpaFunctionImpl.
  */
@@ -162,4 +161,3 @@ public class InvokeOpaFunctionImplTest {
     }
 
 }
-

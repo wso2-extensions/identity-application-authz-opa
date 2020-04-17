@@ -18,8 +18,6 @@
 package org.wso2.carbon.identity.application.authz.opa;
 
 import org.apache.commons.lang.StringUtils;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 import org.apache.http.client.config.RequestConfig;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpPost;
@@ -62,9 +60,6 @@ import static org.apache.http.HttpHeaders.CONTENT_TYPE;
  * Implementation of the InvokeOpaFunction.
  */
 public class InvokeOpaFunctionImpl implements InvokeOpaFunction {
-
-    private static final Log LOG = LogFactory.getLog(InvokeOpaFunctionImpl.class);
-    private static final String TYPE_APPLICATION_JSON = "application/json";
 
     private CloseableHttpClient client;
 
@@ -117,8 +112,8 @@ public class InvokeOpaFunctionImpl implements InvokeOpaFunction {
 
             HttpPost request = new HttpPost(epUrl);
             try {
-                request.setHeader(ACCEPT, TYPE_APPLICATION_JSON);
-                request.setHeader(CONTENT_TYPE, TYPE_APPLICATION_JSON);
+                request.setHeader(ACCEPT, OPAConstants.TYPE_APPLICATION_JSON);
+                request.setHeader(CONTENT_TYPE, OPAConstants.TYPE_APPLICATION_JSON);
 
                 JSONObject input = makeInputForOpa(payload, finalClaims, finalRoles, finalStoreDomain, finalUser);
                 request.setEntity(new StringEntity(input.toJSONString()));
@@ -137,19 +132,18 @@ public class InvokeOpaFunctionImpl implements InvokeOpaFunction {
                 }
 
             } catch (ConnectTimeoutException e) {
-                LOG.error("Error while waiting to connect to " + epUrl, e);
+                OPAConstants.LOG.error("Error while waiting to connect to " + epUrl, e);
                 outcome = Constants.OUTCOME_TIMEOUT;
             } catch (SocketTimeoutException e) {
-                LOG.error("Error while waiting for data from " + epUrl, e);
+                OPAConstants.LOG.error("Error while waiting for data from " + epUrl, e);
                 outcome = Constants.OUTCOME_TIMEOUT;
             } catch (IOException e) {
-                LOG.error("Error while calling endpoint. ", e);
+                OPAConstants.LOG.error("Error while calling endpoint. ", e);
                 outcome = Constants.OUTCOME_FAIL;
             } catch (ParseException e) {
-                LOG.error("Error while parsing response. ", e);
+                OPAConstants.LOG.error("Error while parsing response. ", e);
                 outcome = Constants.OUTCOME_FAIL;
             }
-
             asyncReturn.accept(context, json != null ? json : Collections.emptyMap(), outcome);
         });
         JsGraphBuilder.addLongWaitProcess(asyncProcess, events);
@@ -188,10 +182,8 @@ public class InvokeOpaFunctionImpl implements InvokeOpaFunction {
             OPAFunctionsServiceHolder functionServiceHolder = OPAFunctionsServiceHolder.getInstance();
             localClaims = functionServiceHolder.getClaimMetadataManagementService().getLocalClaims(tenantDomain);
         } catch (ClaimMetadataException e) {
-
-            LOG.error("Error while getting local claims in tenant domain : " + tenantDomain);
+            OPAConstants.LOG.error("Error while getting local claims in tenant domain : " + tenantDomain);
         }
-
         if (localClaims != null) {
             for (LocalClaim localClaim : localClaims) {
                 String claimUri = localClaim.getClaimURI();
