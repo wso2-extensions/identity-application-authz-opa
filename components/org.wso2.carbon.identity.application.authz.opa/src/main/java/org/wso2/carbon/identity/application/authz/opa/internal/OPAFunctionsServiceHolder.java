@@ -59,5 +59,4 @@ public class OPAFunctionsServiceHolder {
 
         this.jsFunctionRegistry = jsFunctionRegistry;
     }
-
 }

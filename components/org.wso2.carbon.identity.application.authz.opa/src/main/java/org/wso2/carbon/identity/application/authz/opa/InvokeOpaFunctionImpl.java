@@ -79,12 +79,12 @@ public class InvokeOpaFunctionImpl implements InvokeOpaFunction {
         JsAuthenticatedUser user = null;
         String userStoreDomain = null;
 
-        if (payload != null) {
+        if (payload != null){
             JsAuthenticationContext jsContext = (JsAuthenticationContext) (payload.get(OPAConstants.CONTEXT));
 
             if ((jsContext.getMember(FrameworkConstants.JSAttributes.JS_STEPS)) != null) {
                 JsStep slot = (JsStep) (((JsSteps) jsContext.getMember(FrameworkConstants.JSAttributes.JS_STEPS)).getSlot(1));
-                if (slot != null) {
+                if (slot != null){
                     user = (JsAuthenticatedUser) slot.getMember(FrameworkConstants.JSAttributes.JS_AUTHENTICATED_SUBJECT);
                     userStoreDomain = (String) user.getMember(FrameworkConstants.JSAttributes.JS_USER_STORE_DOMAIN);
                 }
@@ -225,5 +225,4 @@ public class InvokeOpaFunctionImpl implements InvokeOpaFunction {
         }
         return list;
     }
-
 }

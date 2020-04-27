@@ -96,5 +96,4 @@ public class OPAFunctionsServiceComponent {
 
         OPAFunctionsServiceHolder.getInstance().setClaimMetadataManagementService(null);
     }
-
 }

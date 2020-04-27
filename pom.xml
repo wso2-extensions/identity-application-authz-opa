@@ -478,5 +478,4 @@
             **/*Holder.java
         </sonar.coverage.exclusions>
     </properties>
-
 </project>

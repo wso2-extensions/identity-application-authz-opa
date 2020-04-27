@@ -159,5 +159,4 @@ public class InvokeOpaFunctionImplTest {
 
         return new org.powermock.modules.testng.PowerMockObjectFactory();
     }
-
 }
