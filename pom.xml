@@ -29,15 +29,8 @@
     <artifactId>identity-application-authz-opa</artifactId>
     <version>0.1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
-    <name>WSO2 Carbon - IAM Authentication OPA Functions</name>
+    <name>WSO2 Carbon - IAM OPA Authentication Functions</name>
     <url>http://wso2.org</url>
-
-    <scm>
-        <url>https://github.com/wso2-extensions/identity-conditional-auth-functions.git</url>
-        <developerConnection>scm:git:https://github.com/wso2-extensions/identity-conditional-auth-functions.git</developerConnection>
-        <connection>scm:git:https://github.com/wso2-extensions/identity-conditional-auth-functions.git</connection>
-        <tag>v0.1.40</tag>
-    </scm>
 
     <modules>
         <module>components/org.wso2.carbon.identity.application.authz.opa</module>
@@ -51,74 +44,9 @@
                 <version>${org.wso2.carbon.identity.conditional.auth.functions.common.version}</version>
             </dependency>
             <dependency>
-                <groupId>org.wso2.carbon.identity.conditional.auth.functions</groupId>
-                <artifactId>org.wso2.carbon.identity.conditional.auth.functions.analytics</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.wso2.carbon.identity.conditional.auth.functions</groupId>
-                <artifactId>org.wso2.carbon.identity.conditional.auth.functions.http</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-            <dependency>
                 <groupId>org.wso2.carbon.identity.application.authz.opa</groupId>
                 <artifactId>org.wso2.carbon.identity.application.authz.opa</artifactId>
                 <version>${project.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.wso2.carbon.identity.conditional.auth.functions</groupId>
-                <artifactId>org.wso2.carbon.identity.conditional.auth.functions.notification</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.wso2.carbon.identity.conditional.auth.functions</groupId>
-                <artifactId>org.wso2.carbon.identity.conditional.auth.functions.user</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.wso2.carbon.identity.conditional.auth.functions</groupId>
-                <artifactId>org.wso2.carbon.identity.conditional.auth.functions.user.store</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>commons-lang.wso2</groupId>
-                <artifactId>commons-lang</artifactId>
-                <version>${commons-lang.wso2.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.wso2.carbon</groupId>
-                <artifactId>org.wso2.carbon.logging</artifactId>
-                <version>${carbon.kernel.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.wso2.carbon</groupId>
-                <artifactId>org.wso2.carbon.core</artifactId>
-                <version>${carbon.kernel.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.wso2.carbon</groupId>
-                <artifactId>org.wso2.carbon.user.core</artifactId>
-                <version>${carbon.kernel.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.wso2.carbon.identity.framework</groupId>
-                <artifactId>org.wso2.carbon.identity.application.authentication.framework</artifactId>
-                <version>${carbon.identity.framework.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.wso2.carbon.identity.framework</groupId>
-                <artifactId>org.wso2.carbon.identity.event</artifactId>
-                <version>${carbon.identity.framework.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.wso2.carbon.identity.framework</groupId>
-                <artifactId>org.wso2.carbon.identity.user.profile</artifactId>
-                <version>${carbon.identity.framework.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.json.wso2</groupId>
-                <artifactId>json</artifactId>
-                <version>${json.wso2.version}</version>
             </dependency>
 
             <!-- Test related dependencies -->
@@ -175,56 +103,10 @@
             </dependency>
 
             <dependency>
-                <groupId>org.jacoco</groupId>
-                <artifactId>org.jacoco.agent</artifactId>
-                <classifier>runtime</classifier>
-                <scope>test</scope>
-                <version>${jacoco.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.wso2.carbon</groupId>
-                <artifactId>org.wso2.carbon.utils</artifactId>
-                <version>${carbon.kernel.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.h2database.wso2</groupId>
-                <artifactId>h2-database-engine</artifactId>
-                <version>${com.h2database.version}</version>
-            </dependency>
-            <dependency>
                 <groupId>org.wso2.carbon.identity.conditional.auth.functions</groupId>
                 <artifactId>org.wso2.carbon.identity.conditional.auth.functions.test.utils</artifactId>
                 <version>${org.wso2.carbon.identity.conditional.auth.functions.test.utils.version}</version>
                 <scope>test</scope>
-            </dependency>
-            <dependency>
-                <groupId>org.wso2.carbon.identity.framework</groupId>
-                <artifactId>org.wso2.carbon.identity.testutil</artifactId>
-                <version>${org.wso2.carbon.identity.testutil.version}</version>
-                <scope>test</scope>
-            </dependency>
-            <dependency>
-                <groupId>org.wso2.msf4j</groupId>
-                <artifactId>msf4j-core</artifactId>
-                <version>${msf4j.version}</version>
-                <scope>test</scope>
-            </dependency>
-            <dependency>
-                <groupId>org.wso2.msf4j</groupId>
-                <artifactId>msf4j-microservice</artifactId>
-                <version>${msf4j.version}</version>
-                <scope>test</scope>
-            </dependency>
-            <dependency>
-                <groupId>org.wso2.carbon.identity.event.handler.notification</groupId>
-                <artifactId>org.wso2.carbon.identity.event.handler.notification</artifactId>
-                <version>${identity.event.handler.notification.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.wso2.carbon.identity.framework</groupId>
-                <artifactId>org.wso2.carbon.identity.core</artifactId>
-                <version>${carbon.identity.framework.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

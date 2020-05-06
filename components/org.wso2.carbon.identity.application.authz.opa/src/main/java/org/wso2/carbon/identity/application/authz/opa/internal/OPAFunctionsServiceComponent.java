@@ -33,7 +33,7 @@ import org.wso2.carbon.identity.application.authz.opa.InvokeOpaFunctionImpl;
 import org.wso2.carbon.identity.claim.metadata.mgt.ClaimMetadataManagementService;
 
 /**
- * services component which handles OPA related auth functions.
+ * Services component which handles OPA related auth functions.
  */
 @Component(
         name = "identity.application.authz.opa.component",
@@ -52,7 +52,6 @@ public class OPAFunctionsServiceComponent {
             InvokeOpaFunction invokeOPA = new InvokeOpaFunctionImpl();
             jsFunctionRegistry.register(JsFunctionRegistry.Subsystem.SEQUENCE_HANDLER, FUNC_INVOKE_OPA, invokeOPA);
         } catch (Throwable e) {
-
             LOG.error("Error occurred while registering invokeOPA function", e);
         }
     }

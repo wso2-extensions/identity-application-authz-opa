@@ -57,11 +57,11 @@ import static org.apache.http.HttpHeaders.ACCEPT;
 import static org.apache.http.HttpHeaders.CONTENT_TYPE;
 
 /**
- * Implementation of the InvokeOpaFunction.
+ * Implementation of InvokeOpaFunction.
  */
 public class InvokeOpaFunctionImpl implements InvokeOpaFunction {
 
-    private CloseableHttpClient client;
+    private final CloseableHttpClient client;
 
     public InvokeOpaFunctionImpl() {
 
@@ -74,17 +74,19 @@ public class InvokeOpaFunctionImpl implements InvokeOpaFunction {
     }
 
     @Override
-    public void invokeOPA(String epUrl, Map<String, Object> payload, Map<String, String> options, Map<String, Object> events) {
+    public void invokeOPA(String epUrl, Map<String, Object> payload, Map<String, String> options,
+                          Map<String, Object> events) {
 
         JsAuthenticatedUser user = null;
         String userStoreDomain = null;
 
-        if (payload != null){
+        if (payload != null) {
             JsAuthenticationContext jsContext = (JsAuthenticationContext) (payload.get(OPAConstants.CONTEXT));
-
             if ((jsContext.getMember(FrameworkConstants.JSAttributes.JS_STEPS)) != null) {
-                JsStep slot = (JsStep) (((JsSteps) jsContext.getMember(FrameworkConstants.JSAttributes.JS_STEPS)).getSlot(1));
-                if (slot != null){
+                JsStep slot = (JsStep) (((JsSteps) jsContext
+                        .getMember(FrameworkConstants.JSAttributes.JS_STEPS))
+                        .getSlot(1));
+                if (slot != null) {
                     user = (JsAuthenticatedUser) slot.getMember(FrameworkConstants.JSAttributes.JS_AUTHENTICATED_SUBJECT);
                     userStoreDomain = (String) user.getMember(FrameworkConstants.JSAttributes.JS_USER_STORE_DOMAIN);
                 }
@@ -94,10 +96,12 @@ public class InvokeOpaFunctionImpl implements InvokeOpaFunction {
         JSONObject userClaims = null;
         List roles = new ArrayList<>();
 
-        if (Boolean.parseBoolean(options.get(OPAConstants.SEND_CLAIMS))) {
-            userClaims = getClaims(user);
-        } else if (Boolean.parseBoolean(options.get(OPAConstants.SEND_ROLES))) {
-            roles = getUserRoles(user);
+        if (user != null) {
+            if (Boolean.parseBoolean(options.get(OPAConstants.SEND_CLAIMS))) {
+                userClaims = getClaims(user);
+            } else if (Boolean.parseBoolean(options.get(OPAConstants.SEND_ROLES))) {
+                roles = getUserRoles(user);
+            }
         }
 
         JSONObject finalClaims = userClaims;
@@ -115,7 +119,7 @@ public class InvokeOpaFunctionImpl implements InvokeOpaFunction {
                 request.setHeader(ACCEPT, OPAConstants.TYPE_APPLICATION_JSON);
                 request.setHeader(CONTENT_TYPE, OPAConstants.TYPE_APPLICATION_JSON);
 
-                JSONObject input = makeInputForOpa(payload, finalClaims, finalRoles, finalStoreDomain, finalUser);
+                JSONObject input = buildInput(payload, finalClaims, finalRoles, finalStoreDomain, finalUser);
                 request.setEntity(new StringEntity(input.toJSONString()));
 
                 try (CloseableHttpResponse response = client.execute(request)) {
@@ -149,13 +153,15 @@ public class InvokeOpaFunctionImpl implements InvokeOpaFunction {
         JsGraphBuilder.addLongWaitProcess(asyncProcess, events);
     }
 
-    private JSONObject makeInputForOpa(Map<String, Object> payload, JSONObject finalClaims,
-                                       List finalRoles, String finalStoreDomain, JsAuthenticatedUser finalUser) {
+    private JSONObject buildInput(Map<String, Object> payload, JSONObject finalClaims,
+                                  List finalRoles, String finalStoreDomain, JsAuthenticatedUser finalUser) {
 
         JSONObject finalJsonObject = new JSONObject();
-        for (Map.Entry<String, Object> dataElements : payload.entrySet()) {
-            if (dataElements.getValue() != payload.get(OPAConstants.CONTEXT)) {
-                finalJsonObject.put(dataElements.getKey(), dataElements.getValue());
+        if (payload != null) {
+            for (Map.Entry<String, Object> dataElements : payload.entrySet()) {
+                if (dataElements.getValue() != payload.get(OPAConstants.CONTEXT)) {
+                    finalJsonObject.put(dataElements.getKey(), dataElements.getValue());
+                }
             }
         }
 
@@ -201,13 +207,10 @@ public class InvokeOpaFunctionImpl implements InvokeOpaFunction {
 
         JSONObject uerDetails = new JSONObject();
         String jsAuthSubject = FrameworkConstants.JSAttributes.JS_AUTHENTICATED_SUBJECT_IDENTIFIER;
-
         String authenticatedSubjectIdentifier = (String) user.getMember(jsAuthSubject);
         uerDetails.put(OPAConstants.JS_AUTHENTICATED_SUBJECT_IDENTIFIER, authenticatedSubjectIdentifier);
-
         String userName = (String) user.getMember(FrameworkConstants.JSAttributes.JS_USERNAME);
         uerDetails.put(OPAConstants.JS_USERNAME, userName);
-
         String tenantDomain = (String) user.getMember(FrameworkConstants.JSAttributes.JS_TENANT_DOMAIN);
         uerDetails.put(OPAConstants.JS_TENANT_DOMAIN, tenantDomain);
 

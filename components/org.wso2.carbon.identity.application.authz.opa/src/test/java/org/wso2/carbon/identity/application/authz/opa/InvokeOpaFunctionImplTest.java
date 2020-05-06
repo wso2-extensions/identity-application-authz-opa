@@ -55,7 +55,7 @@ import static org.powermock.api.mockito.PowerMockito.mockStatic;
 import static org.powermock.api.mockito.PowerMockito.when;
 
 /**
- * unit test for the InvokeOpaFunctionImpl.
+ * Unit test for InvokeOpaFunctionImpl.
  */
 @RunWith(PowerMockRunner.class)
 @PrepareForTest({JsGraphBuilder.class, HttpClientBuilder.class, RequestConfig.class, RequestConfig.Builder.class})
@@ -64,10 +64,8 @@ public class InvokeOpaFunctionImplTest {
 
     @Mock
     private HttpClientBuilder mockBuil, mockBuilCon;
-
     @Mock
     private RequestConfig mockCon;
-
     @Mock
     private RequestConfig.Builder bui, conTime, reqTime, sockTime;
 
@@ -86,24 +84,21 @@ public class InvokeOpaFunctionImplTest {
         this.response = mock(CloseableHttpResponse.class);
         this.entity = mock(HttpEntity.class);
         this.statusline = mock(StatusLine.class);
-
         mockCon = mock(RequestConfig.class);
         bui = mock(RequestConfig.Builder.class);
         conTime = mock(RequestConfig.Builder.class);
         reqTime = mock(RequestConfig.Builder.class);
         sockTime = mock(RequestConfig.Builder.class);
-
         mockStatic(RequestConfig.class);
+        mockStatic(HttpClientBuilder.class);
+        mockBuil = mock(HttpClientBuilder.class);
+        mockBuilCon = mock(HttpClientBuilder.class);
+
         when(RequestConfig.custom()).thenReturn(bui);
         when(bui.setConnectTimeout(5000)).thenReturn(conTime);
         when(conTime.setConnectionRequestTimeout(5000)).thenReturn(reqTime);
         when(reqTime.setSocketTimeout(5000)).thenReturn(sockTime);
         when(sockTime.build()).thenReturn(mockCon);
-
-        mockStatic(HttpClientBuilder.class);
-        mockBuil = mock(HttpClientBuilder.class);
-        mockBuilCon = mock(HttpClientBuilder.class);
-
         when(HttpClientBuilder.create()).thenReturn(mockBuil);
         when(mockBuil.setDefaultRequestConfig(mockCon)).thenReturn(mockBuilCon);
         when(mockBuilCon.build()).thenReturn(httpClient);
@@ -144,12 +139,10 @@ public class InvokeOpaFunctionImplTest {
 
         Object roles[] = {"Application/Smal2-web-app", "Application/travelocity.com", "admin"};
         when(user.getMember(FrameworkConstants.JSAttributes.JS_LOCAL_ROLES)).thenReturn(roles);
-
         mockStatic(JsGraphBuilder.class);
         PowerMockito
                 .doNothing()
-                .when(JsGraphBuilder.class,"addLongWaitProcess", Mockito.any(AsyncProcess.class), Mockito.anyMap());
-
+                .when(JsGraphBuilder.class, "addLongWaitProcess", Mockito.any(AsyncProcess.class), Mockito.anyMap());
         serviceInvoker.invokeOPA("http://localhost:8181/v1/data/play/policy", payload, options, events);
 
     }

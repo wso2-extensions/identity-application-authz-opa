@@ -40,7 +40,7 @@ public class OPAConstants {
     public static final String CLAIMS = "claims";
     public static final String ROLES = "roles";
     public static final String USER_STORE_DOMAIN = "userStoreDomain";
-    public static final String USER_CONTEXT = "userContextDetails";
-    public static final String USER = "userDetails";
+    public static final String USER_CONTEXT = "user_context";
+    public static final String USER = "user";
 
 }
