@@ -32,6 +32,13 @@
     <name>WSO2 Carbon - IAM OPA Authentication Functions</name>
     <url>http://wso2.org</url>
 
+    <scm>
+        <url>https://github.com/wso2-extensions/identity-application-authz-opa.git</url>
+        <developerConnection>scm:git:https://github.com/wso2-extensions/identity-application-authz-opa.git</developerConnection>
+        <connection>scm:git:https://github.com/wso2-extensions/identity-application-authz-opa.git</connection>
+        <tag>HEAD</tag>
+    </scm>
+
     <modules>
         <module>components/org.wso2.carbon.identity.application.authz.opa</module>
     </modules>
