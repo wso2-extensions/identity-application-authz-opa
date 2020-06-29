@@ -3,15 +3,6 @@
 This topic provides instructions on configuring the OPA Integrator, and the WSO2 Identity Server 
 to perform adaptive authentication based on your OPA policies.
 
-````
- Open Policy Agent (OPA) is a policy engine that can be used to implement fine-grained access control for your application and It provides greater flexibility and expressiveness than hard-coded service logic or ad-hoc domain-specific languages.
- OPA comes with powerful tooling to help anyone get started and also expresses policies in a high-level, declarative language called Rego which promotes safe and fine-grained controls. And it is a highly practical solution for the critical security and policy challenges of the cloud-native ecosystems.
- [To know more about OPA](https://play.openpolicyagent.org/ ) 
- Using OPA , now you can perform adaptive authentication in WSO2 Identity Server based on any attribute.OPA Integrator Version 1.0.0 adaptive authentication is supported by WSO2 Identity Server versions 5.10.0. and above.
- Here for more clarity I’ll give you the steps for a role based authentication scenario.
- Let’s consider a scenario where you want a user who has an administrator role to perform an additional level of authentication while any other user can just provide their credentials (basic authentication) to access a resource.
-
-````
 ### Download OPA
 A . To get started downloading an OPA binary for your platform from GitHub releases you can use curl command.
       On macOS (64-bit):
@@ -78,6 +69,7 @@ administrator.
 4. Expand the Local and Outbound Configuration section and click Advanced Authentication.
 5. Click on Templates on the right side of the Script Based Conditional Authentication field and then add the following script.
       
+````
 
 var errorPage = '';
       var errorPageParameters = {
@@ -105,6 +97,8 @@ var errorPage = '';
                       }
               });
         };
+
+````
  
  Using the function “invokeOPA” in adaptive scripts, You can pass any JSON object with the context as the payload, and from OPA it is possible to process the data object and extract the required information.
  Then the OPA engine will execute the defined policies and will send back a JSON response to WSO2 IS. The final authentication or authorization decision will be made by OPA according to the policies that have been defined.
@@ -119,6 +113,8 @@ var errorPage = '';
       c.  Click Update.
  
  ###Testing the sample scenario
+
+
 1.Access the following sample PickUp application URL: http://localhost.com:8080/saml2-web-app-pickup-dispatch.com
 
 ![Add New Service Provider](images/image3.png)
