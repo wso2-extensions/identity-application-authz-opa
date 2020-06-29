@@ -18,8 +18,9 @@ B. Set permissions on the OPA executable:
       openpolicyagent/opa:latest.
       
       
-      
-###Run OPA engine.
+
+### Run OPA engine
+
    After downloading the binary, open the command prompt & start the OPA service by issuing the command:
       ./opa run --server
       (To see more information visit https://www.openpolicyagent.org/docs/latest/#running-opa )
@@ -31,6 +32,7 @@ B. Set permissions on the OPA executable:
       
    Now you can write down the role base OPA policy as shown below and upload it :
       
+ ````  
    package play.policy
       import input
       default permit = false
@@ -40,7 +42,9 @@ B. Set permissions on the OPA executable:
       user := input.user.roles[_]
       user == role[_]
    }
-      
+
+````
+
    You can upload the above policy file ispolicy.rego into OPA by using following curl command:
       curl -X PUT http://localhost:8181/v1/policies/myapi --data-binary @ispolicy.rego
       
@@ -103,7 +107,8 @@ var errorPage = '';
  Using the function “invokeOPA” in adaptive scripts, You can pass any JSON object with the context as the payload, and from OPA it is possible to process the data object and extract the required information.
  Then the OPA engine will execute the defined policies and will send back a JSON response to WSO2 IS. The final authentication or authorization decision will be made by OPA according to the policies that have been defined.
  
- 6. Click Ok.
+
+6. Click Ok.
 
 7. The second authentication step that is added is totp. However, totp is an authentication step that you would normally use in production. To try out this scenario, sample authenticators with the sample application, delete the totp authenticator and add the following sample authenticator instead.
       a. Click Delete to remove the totp authenticator from Step 2 (the second authentication step). ![Add New Service Provider](images/image1.png)
@@ -112,16 +117,19 @@ var errorPage = '';
        
       c.  Click Update.
  
- ###Testing the sample scenario
+
+### Testing the sample scenario
 
 
 1.Access the following sample PickUp application URL: http://localhost.com:8080/saml2-web-app-pickup-dispatch.com
+
 
 ![Add New Service Provider](images/image3.png)
 
 2. Click Login and enter admin/admin credentials. You are prompted to use the hardware key after basic authentication according to the authentication step defined in the JavaScript above. 
 Enter the 4 digit key given on the screen and click Sign In. 
 Then you can successfully sign in to the application
+
 
 ![Add New Service Provider](images/image4.png)
 
