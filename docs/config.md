@@ -78,6 +78,7 @@ administrator.
 4. Expand the Local and Outbound Configuration section and click Advanced Authentication.
 5. Click on Templates on the right side of the Script Based Conditional Authentication field and then add the following script.
       
+
 var errorPage = '';
       var errorPageParameters = {
          'status': 'Unauthorized',
@@ -107,18 +108,25 @@ var errorPage = '';
  
  Using the function “invokeOPA” in adaptive scripts, You can pass any JSON object with the context as the payload, and from OPA it is possible to process the data object and extract the required information.
  Then the OPA engine will execute the defined policies and will send back a JSON response to WSO2 IS. The final authentication or authorization decision will be made by OPA according to the policies that have been defined.
+ 
  6. Click Ok.
- 7. The second authentication step that is added is totp. However, totp is an authentication step that you would normally use in production. To try out this scenario, sample authenticators with the sample application, delete the totp authenticator and add the following sample authenticator instead.
-      a. Click Delete to remove the totp authenticator from Step 2 (the second authentication step).
-      ![Add New Service Provider](images/image1.png)
-      b.Select Demo Hardware Key Authenticator and click Add.
-      ![Add New Service Provider](images/image2.png)
+
+7. The second authentication step that is added is totp. However, totp is an authentication step that you would normally use in production. To try out this scenario, sample authenticators with the sample application, delete the totp authenticator and add the following sample authenticator instead.
+      a. Click Delete to remove the totp authenticator from Step 2 (the second authentication step). ![Add New Service Provider](images/image1.png)
+        
+      b.Select Demo Hardware Key Authenticator and click Add.![Add New Service Provider](images/image2.png)
+       
       c.  Click Update.
  
  ###Testing the sample scenario
 1.Access the following sample PickUp application URL: http://localhost.com:8080/saml2-web-app-pickup-dispatch.com
+
 ![Add New Service Provider](images/image3.png)
+
 2. Click Login and enter admin/admin credentials. You are prompted to use the hardware key after basic authentication according to the authentication step defined in the JavaScript above. 
-Enter the 4 digit key given on the screen and click Sign In. Then you can successfully sign in to the application
+Enter the 4 digit key given on the screen and click Sign In. 
+Then you can successfully sign in to the application
+
 ![Add New Service Provider](images/image4.png)
+
 3.Next, log out of the application and login again as 'Alex'. Note that this user is not assigned to any role. You will see that this will redirect you to an error page telling “You need to be an admin or a manager.”
