@@ -147,15 +147,18 @@
                             version="${carbon.identity.framework.imp.pkg.version.range}",
                             org.wso2.carbon.identity.application.authentication.framework.model;
                             version="${carbon.identity.framework.imp.pkg.version.range}",
-                            org.wso2.carbon.identity.application.authentication.framework.config.model,
-                            org.wso2.carbon.identity.application.authentication.framework.config.model.graph.js,
-                            org.wso2.carbon.identity.application.authentication.framework.config.model.graph,
+                            org.wso2.carbon.identity.application.authentication.framework.config.model;
+                            version="${carbon.identity.framework.imp.pkg.version.range}",
+                            org.wso2.carbon.identity.application.authentication.framework.config.model.graph.js;
+                            version="${carbon.identity.framework.imp.pkg.version.range}",
+                            org.wso2.carbon.identity.application.authentication.framework.config.model.graph;
+                            version="${carbon.identity.framework.imp.pkg.version.range}",
                             org.wso2.carbon.identity.application.authentication.framework.util;
                             version="${carbon.identity.framework.imp.pkg.version.range}",
-                            org.wso2.carbon.identity.core.util; version="${carbon.identity.package.import.version.range}",
+                            org.wso2.carbon.identity.core.util; version="${carbon.identity.framework.imp.pkg.version.range}",
                             org.wso2.carbon.user.core; version="${carbon.kernel.package.import.version.range}",
                             org.wso2.carbon.user.core.service; version="${carbon.kernel.package.import.version.range}",
-                            org.wso2.carbon.identity.claim.metadata.mgt; version="${carbon.identity.package.import.version.range}",
+                            org.wso2.carbon.identity.claim.metadata.mgt; version="${carbon.identity.framework.imp.pkg.version.range}",
                             org.wso2.carbon.identity.claim.metadata.mgt.exception; version="${identity.framework.version}",
                             org.wso2.carbon.identity.claim.metadata.mgt.model; version="${identity.framework.version}",
                         </Import-Package>
