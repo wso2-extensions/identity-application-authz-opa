@@ -27,7 +27,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.wso2.carbon.identity.application.authz.opa</groupId>
     <artifactId>identity-application-authz-opa</artifactId>
-    <version>1.0.6-SNAPSHOT</version>
+    <version>1.0.6</version>
     <packaging>pom</packaging>
     <name>WSO2 Carbon - IAM OPA Authentication Functions</name>
     <url>http://wso2.org</url>
@@ -36,7 +36,7 @@
         <url>https://github.com/wso2-extensions/identity-application-authz-opa.git</url>
         <developerConnection>scm:git:https://github.com/wso2-extensions/identity-application-authz-opa.git</developerConnection>
         <connection>scm:git:https://github.com/wso2-extensions/identity-application-authz-opa.git</connection>
-        <tag>HEAD</tag>
+        <tag>v1.0.6</tag>
     </scm>
 
     <modules>
